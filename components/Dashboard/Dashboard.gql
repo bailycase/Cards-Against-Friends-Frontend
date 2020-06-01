@@ -1,0 +1,7 @@
+mutation updateUser($args: UpdateUserArgs!) {
+  updateUser(args: $args) {
+    _id
+    name
+    email
+  }
+}

@@ -1,0 +1,114 @@
+mutation joinGame($gameId: String!, $name: String!) {
+  joinGame(gameId: $gameId, name: $name) {
+    gameId
+  }
+}
+
+mutation createGame($gameId: String!, $host: String!) {
+  createGame(gameId: $gameId, host: $host) {
+    gameId
+  }
+}
+
+subscription game($gameId: String!) {
+  game(gameId: $gameId) {
+    gameId
+    userJoined {
+      name
+    }
+    userLeft {
+      name
+    }
+    host
+  }
+}
+
+subscription gameDetails($gameId: String!) {
+  gameDetails(gameId: $gameId) {
+    event
+    running
+    cardCzar
+    roundStatus
+    cardsToJudge {
+      name
+      cardName
+    }
+  }
+}
+
+subscription cardsDealt($gameId: String!) {
+  cardsDealt(gameId: $gameId) {
+    blackCard
+    user
+    cards
+  }
+}
+
+query getGame($gameId: String!, $name: String!) {
+  getGame(gameId: $gameId, name: $name) {
+    gameId
+    host
+    users {
+      name
+      points
+    }
+  }
+}
+
+mutation leaveGame($gameId: String!, $name: String!) {
+  leaveGame(gameId: $gameId, name: $name)
+}
+
+mutation startGame($gameId: String!, $name: String!) {
+  startGame(gameId: $gameId, name: $name) {
+    running
+    cardCzar
+  }
+}
+
+mutation stopGame($gameId: String!, $name: String!) {
+  stopGame(gameId: $gameId, name: $name) {
+    running
+    cardCzar
+  }
+}
+
+mutation selectCard($gameId: String!, $name: String!, $card: String!) {
+  selectCard(gameId: $gameId, name: $name, card: $card)
+}
+
+query getUserCards($gameId: String!, $name: String!) {
+  getUserCards(gameId: $gameId, name: $name) {
+    user
+    blackCard
+    cards
+  }
+}
+
+subscription gamePlayers($gameId: String!) {
+  gamePlayers(gameId: $gameId) {
+    gameId
+    event
+    host
+    user
+    userJoined {
+      name
+    }
+    userLeft {
+      name
+    }
+    users {
+      name
+      points
+    }
+  }
+}
+
+mutation selectWinningCard(
+  $gameId: String!
+  $name: String!
+  $card: String!
+  $winningUser: String!
+) {
+  selectWinningCard(gameId: $gameId, name: $name, card: $card, winningUser: $winningUser)
+}
