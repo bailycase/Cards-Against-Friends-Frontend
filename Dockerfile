@@ -12,4 +12,10 @@ COPY --from=0 /app/Caddyfile /etc/Caddyfile
 
 COPY --from=0 ./app/build /site
 
+EXPOSE 80/tcp
+
+EXPOSE 8080/tcp
+
+EXPOSE 443/tcp
+
 CMD ["caddy", "run", "--config", "./etc/Caddyfile"] 
