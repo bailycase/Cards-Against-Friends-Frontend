@@ -1,41 +1,41 @@
-    apiVersion: "apps/v1"
-    kind: "Deployment"
+---
+apiVersion: 'apps/v1'
+kind: 'Deployment'
+metadata:
+  name: 'caf-frontend'
+  namespace: 'default'
+  labels:
+    app: 'caf-frontend'
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: 'caf-frontend'
+  template:
     metadata:
-      name: "caf-frontend"
-      namespace: "default"
       labels:
-        app: "caf-frontend"
+        app: 'caf-frontend'
     spec:
-      replicas: 3
-      selector:
-        matchLabels:
-          app: "caf-frontend"
-      template:
-        metadata:
-          labels:
-            app: "caf-frontend"
-        spec:
-          containers:
-          - name: "caf-frontend-1"
-            image: "gcr.io/cards-against-friends-277922/caf-frontend:v1.0.0"
-    ---
-    apiVersion: "autoscaling/v2beta1"
-    kind: "HorizontalPodAutoscaler"
-    metadata:
-      name: "caf-frontend-hpa-rymc"
-      namespace: "default"
-      labels:
-        app: "caf-frontend"
-    spec:
-      scaleTargetRef:
-        kind: "Deployment"
-        name: "caf-frontend"
-        apiVersion: "apps/v1"
-      minReplicas: 1
-      maxReplicas: 5
-      metrics:
-      - type: "Resource"
-        resource:
-          name: "cpu"
-          targetAverageUtilization: 80
-    
+      containers:
+        - name: 'caf-frontend-1'
+          image: 'gcr.io/cards-against-friends-277922/caf-frontend:v1.0.0'
+---
+apiVersion: 'autoscaling/v2beta1'
+kind: 'HorizontalPodAutoscaler'
+metadata:
+  name: 'caf-frontend-hpa-rymc'
+  namespace: 'default'
+  labels:
+    app: 'caf-frontend'
+spec:
+  scaleTargetRef:
+    kind: 'Deployment'
+    name: 'caf-frontend'
+    apiVersion: 'apps/v1'
+  minReplicas: 1
+  maxReplicas: 5
+  metrics:
+    - type: 'Resource'
+      resource:
+        name: 'cpu'
+        targetAverageUtilization: 80
