@@ -1,331 +1,335 @@
-import React from "react";
-import { useHistory } from "react-router-dom";
+import React from 'react';
+import { useHistory } from 'react-router-dom';
 // import '../../../assets/dashboard/css/black-dashboard.scoped.css';
-//import "../../../assets/landing/css/main.scss";
-import Particles from 'react-particles-js'
-import { Box, Paragraph, Heading, Button, Grid } from 'grommet'
+// import "../../../assets/landing/css/main.scss";
+import Particles from 'react-particles-js';
+import {
+  Box, Paragraph, Heading, Button, Grid,
+} from 'grommet';
 
 const Landing = () => {
   const history = useHistory();
   const handleStart = (): void => {
-    history.push("/login");
+    history.push('/login');
   };
 
   return (
     <>
       <Particles
-        style={{ zIndex: -1, position: "absolute", left: 0, top: 0 }}
+        style={{
+          zIndex: -1, position: 'absolute', left: 0, top: 0,
+        }}
         params={
           {
-            "absorbers": [],
-            "background": {},
-            "backgroundMask": {
-              "cover": {
-                "color": {
-                  "value": "#fff"
+            absorbers: [],
+            background: {},
+            backgroundMask: {
+              cover: {
+                color: {
+                  value: '#fff',
                 },
-                "opacity": 1
+                opacity: 1,
               },
-              "enable": false
+              enable: false,
             },
-            "detectRetina": true,
-            "emitters": [],
-            "fpsLimit": 30,
-            "infection": {
-              "cure": false,
-              "delay": 0,
-              "enable": false,
-              "infections": 0,
-              "stages": []
+            detectRetina: true,
+            emitters: [],
+            fpsLimit: 30,
+            infection: {
+              cure: false,
+              delay: 0,
+              enable: false,
+              infections: 0,
+              stages: [],
             },
-            "interactivity": {
-              "detectsOn": "canvas",
-              "events": {
-                "onClick": {
-                  "enable": true,
-                  "mode": "push"
+            interactivity: {
+              detectsOn: 'canvas',
+              events: {
+                onClick: {
+                  enable: true,
+                  mode: 'push',
                 },
-                "onDiv": {
-                  "elementId": "",
-                  "enable": false,
-                  "mode": []
+                onDiv: {
+                  elementId: '',
+                  enable: false,
+                  mode: [],
                 },
-                "onHover": {
-                  "enable": true,
-                  "mode": "slow",
-                  "parallax": {
-                    "enable": false,
-                    "force": 60,
-                    "smooth": 10
-                  }
-                },
-                "resize": true
-              },
-              "modes": {
-                "absorbers": [],
-                "bubble": {
-                  "distance": 400,
-                  "duration": 2,
-                  "opacity": 0.8,
-                  "size": 40
-                },
-                "connect": {
-                  "distance": 80,
-                  "lineLinked": {
-                    "opacity": 0.5
+                onHover: {
+                  enable: true,
+                  mode: 'slow',
+                  parallax: {
+                    enable: false,
+                    force: 60,
+                    smooth: 10,
                   },
-                  "radius": 60
                 },
-                "emitters": [],
-                "grab": {
-                  "distance": 400,
-                  "lineLinked": {
-                    "opacity": 1
-                  }
-                },
-                "push": {
-                  "quantity": 4
-                },
-                "remove": {
-                  "quantity": 2
-                },
-                "repulse": {
-                  "distance": 200,
-                  "duration": 0.4,
-                  "speed": 1
-                },
-                "slow": {
-                  "factor": 3,
-                  "radius": 100
-                }
-              }
-            },
-            "particles": {
-              "collisions": {
-                "enable": false,
-                "mode": "bounce"
+                resize: true,
               },
-              "color": {
-                "value": "#6320EE"
-              },
-              "lineLinked": {
-                "blink": false,
-                "color": {
-                  "value": "#6320EE"
+              modes: {
+                absorbers: [],
+                bubble: {
+                  distance: 400,
+                  duration: 2,
+                  opacity: 0.8,
+                  size: 40,
                 },
-                "consent": false,
-                "distance": 150,
-                "enable": true,
-                "opacity": 0.4,
-                "shadow": {
-                  "blur": 5,
-                  "color": {
-                    "value": "lime"
+                connect: {
+                  distance: 80,
+                  lineLinked: {
+                    opacity: 0.5,
                   },
-                  "enable": false
+                  radius: 60,
                 },
-                "width": 1
+                emitters: [],
+                grab: {
+                  distance: 400,
+                  lineLinked: {
+                    opacity: 1,
+                  },
+                },
+                push: {
+                  quantity: 4,
+                },
+                remove: {
+                  quantity: 2,
+                },
+                repulse: {
+                  distance: 200,
+                  duration: 0.4,
+                  speed: 1,
+                },
+                slow: {
+                  factor: 3,
+                  radius: 100,
+                },
               },
-              "move": {
-                "attract": {
-                  "enable": false,
-                  "rotate": {
-                    "x": 600,
-                    "y": 1200
-                  }
+            },
+            particles: {
+              collisions: {
+                enable: false,
+                mode: 'bounce',
+              },
+              color: {
+                value: '#6320EE',
+              },
+              lineLinked: {
+                blink: false,
+                color: {
+                  value: '#6320EE',
                 },
-                "direction": "none",
-                "enable": true,
-                "noise": {
-                  "delay": {
-                    "random": {
-                      "enable": false,
-                      "minimumValue": 0
+                consent: false,
+                distance: 150,
+                enable: true,
+                opacity: 0.4,
+                shadow: {
+                  blur: 5,
+                  color: {
+                    value: 'lime',
+                  },
+                  enable: false,
+                },
+                width: 1,
+              },
+              move: {
+                attract: {
+                  enable: false,
+                  rotate: {
+                    x: 600,
+                    y: 1200,
+                  },
+                },
+                direction: 'none',
+                enable: true,
+                noise: {
+                  delay: {
+                    random: {
+                      enable: false,
+                      minimumValue: 0,
                     },
-                    "value": 0
+                    value: 0,
                   },
-                  "enable": false,
-                  "factor": {
-                    "horizontal": {
-                      "value": 50,
-                      "offset": 0
+                  enable: false,
+                  factor: {
+                    horizontal: {
+                      value: 50,
+                      offset: 0,
                     },
-                    "vertical": {
-                      "value": 10,
-                      "offset": 40000
-                    }
-                  }
-                },
-                "outMode": "out",
-                "random": false,
-                "speed": 5,
-                "straight": false,
-                "trail": {
-                  "enable": false,
-                  "length": 5,
-                  "fillColor": {
-                    "value": "#000000"
-                  }
-                },
-                "vibrate": false
-              },
-              "number": {
-                "density": {
-                  "enable": true,
-                  "area": 800,
-                  "factor": 1000
-                },
-                "limit": 0,
-                "value": 80
-              },
-              "opacity": {
-                "animation": {
-                  "enable": false,
-                  "minimumValue": 0.1,
-                  "speed": 1,
-                  "sync": false
-                },
-                "random": {
-                  "enable": false,
-                  "minimumValue": 1
-                },
-                "value": 0.5
-              },
-              "rotate": {
-                "animation": {
-                  "enable": false,
-                  "speed": 0,
-                  "sync": false
-                },
-                "direction": "clockwise",
-                "random": false,
-                "value": 0
-              },
-              "shadow": {
-                "blur": 0,
-                "color": {
-                  "value": "#000000"
-                },
-                "enable": false,
-                "offset": {
-                  "x": 0,
-                  "y": 0
-                }
-              },
-              "shape": {
-                "options": {
-                  "character": {
-                    "fill": true,
-                    "close": true,
-                    "font": "Verdana",
-                    "style": "",
-                    "value": "*",
-                    "weight": "400"
+                    vertical: {
+                      value: 10,
+                      offset: 40000,
+                    },
                   },
-                  "char": {
-                    "fill": true,
-                    "close": true,
-                    "font": "Verdana",
-                    "style": "",
-                    "value": "*",
-                    "weight": "400"
-                  },
-                  "image": {
-                    "fill": true,
-                    "close": true,
-                    "height": 100,
-                    "replaceColor": true,
-                    "src": "https://cdn.matteobruni.it/images/particles/github.svg",
-                    "width": 100
-                  },
-                  "images": {
-                    "fill": true,
-                    "close": true,
-                    "height": 100,
-                    "replaceColor": true,
-                    "src": "https://cdn.matteobruni.it/images/particles/github.svg",
-                    "width": 100
-                  },
-                  "polygon": {
-                    "fill": true,
-                    "close": true,
-                    "sides": 5
-                  },
-                  "star": {
-                    "fill": true,
-                    "close": true,
-                    "sides": 5
-                  }
                 },
-                "type": "circle"
+                outMode: 'out',
+                random: false,
+                speed: 5,
+                straight: false,
+                trail: {
+                  enable: false,
+                  length: 5,
+                  fillColor: {
+                    value: '#000000',
+                  },
+                },
+                vibrate: false,
               },
-              "size": {
-                "animation": {
-                  "destroy": "none",
-                  "enable": false,
-                  "minimumValue": 0.1,
-                  "speed": 40,
-                  "startValue": "max",
-                  "sync": false
+              number: {
+                density: {
+                  enable: true,
+                  area: 800,
+                  factor: 1000,
                 },
-                "random": {
-                  "enable": true,
-                  "minimumValue": 1
-                },
-                "value": 5
+                limit: 0,
+                value: 80,
               },
-              "stroke": {
-                "color": {
-                  "value": "#000000"
+              opacity: {
+                animation: {
+                  enable: false,
+                  minimumValue: 0.1,
+                  speed: 1,
+                  sync: false,
                 },
-                "width": 0,
-                "opacity": 1
+                random: {
+                  enable: false,
+                  minimumValue: 1,
+                },
+                value: 0.5,
               },
-              "twinkle": {
-                "lines": {
-                  "enable": false,
-                  "frequency": 0.05,
-                  "opacity": 1
+              rotate: {
+                animation: {
+                  enable: false,
+                  speed: 0,
+                  sync: false,
                 },
-                "particles": {
-                  "enable": false,
-                  "frequency": 0.05,
-                  "opacity": 1
-                }
-              }
+                direction: 'clockwise',
+                random: false,
+                value: 0,
+              },
+              shadow: {
+                blur: 0,
+                color: {
+                  value: '#000000',
+                },
+                enable: false,
+                offset: {
+                  x: 0,
+                  y: 0,
+                },
+              },
+              shape: {
+                options: {
+                  character: {
+                    fill: true,
+                    close: true,
+                    font: 'Verdana',
+                    style: '',
+                    value: '*',
+                    weight: '400',
+                  },
+                  char: {
+                    fill: true,
+                    close: true,
+                    font: 'Verdana',
+                    style: '',
+                    value: '*',
+                    weight: '400',
+                  },
+                  image: {
+                    fill: true,
+                    close: true,
+                    height: 100,
+                    replaceColor: true,
+                    src: 'https://cdn.matteobruni.it/images/particles/github.svg',
+                    width: 100,
+                  },
+                  images: {
+                    fill: true,
+                    close: true,
+                    height: 100,
+                    replaceColor: true,
+                    src: 'https://cdn.matteobruni.it/images/particles/github.svg',
+                    width: 100,
+                  },
+                  polygon: {
+                    fill: true,
+                    close: true,
+                    sides: 5,
+                  },
+                  star: {
+                    fill: true,
+                    close: true,
+                    sides: 5,
+                  },
+                },
+                type: 'circle',
+              },
+              size: {
+                animation: {
+                  destroy: 'none',
+                  enable: false,
+                  minimumValue: 0.1,
+                  speed: 40,
+                  startValue: 'max',
+                  sync: false,
+                },
+                random: {
+                  enable: true,
+                  minimumValue: 1,
+                },
+                value: 5,
+              },
+              stroke: {
+                color: {
+                  value: '#000000',
+                },
+                width: 0,
+                opacity: 1,
+              },
+              twinkle: {
+                lines: {
+                  enable: false,
+                  frequency: 0.05,
+                  opacity: 1,
+                },
+                particles: {
+                  enable: false,
+                  frequency: 0.05,
+                  opacity: 1,
+                },
+              },
             },
-            "pauseOnBlur": true,
-            "polygon": {
-              "draw": {
-                "enable": false,
-                "stroke": {
-                  "color": {
-                    "value": "#fff"
+            pauseOnBlur: true,
+            polygon: {
+              draw: {
+                enable: false,
+                stroke: {
+                  color: {
+                    value: '#fff',
                   },
-                  "width": 0.5,
-                  "opacity": 1
-                }
+                  width: 0.5,
+                  opacity: 1,
+                },
               },
-              "enable": false,
-              "inline": {
-                "arrangement": "one-per-point"
+              enable: false,
+              inline: {
+                arrangement: 'one-per-point',
               },
-              "move": {
-                "radius": 10,
-                "type": "path"
+              move: {
+                radius: 10,
+                type: 'path',
               },
-              "scale": 1,
-              "type": "none",
-              "url": ""
-            }
+              scale: 1,
+              type: 'none',
+              url: '',
+            },
           }
         }
       />
-      <Box pad="10%" alignContent="center" justify="center" fill background="rgb(0,0,0,0.5)" >
+      <Box pad="10%" alignContent="center" justify="center" fill background="rgb(0,0,0,0.5)">
         {/* <Box round="small" height="medium" width="large" elevation="xlarge" style={{ backgroundColor: "rgb(255, 255, 255)" }} pad="medium"> */}
         <Heading size="large" color="white" margin="0">Welcome to Cards Against Friends!</Heading>
-        <Paragraph size="xxlarge" color="white" >A new take on a cards, forever and always free!</Paragraph>
-        <Button style={{ width: "200px" }} size="large" primary color="brand" label="Start Playing" onClick={handleStart} />
+        <Paragraph size="xxlarge" color="white">A new take on cards, forever and always free!</Paragraph>
+        <Button style={{ width: '200px' }} size="large" primary color="brand" label="Start Playing" onClick={handleStart} />
         {/* </Box> */}
       </Box>
     </>
