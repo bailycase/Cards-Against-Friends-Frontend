@@ -20,8 +20,8 @@ env:
   GKE_PROJECT: ${{ secrets.GKE_PROJECT }}
   GKE_EMAIL: ${{ secrets.GKE_EMAIL }}
   GITHUB_SHA: ${{ github.sha }}
-  GKE_ZONE: us-central1-f
-  GKE_CLUSTER: c-f5vgs
+  GKE_ZONE: us-central1-c
+  GKE_CLUSTER: cluster1
   IMAGE: caf-frontend
 
 jobs:
