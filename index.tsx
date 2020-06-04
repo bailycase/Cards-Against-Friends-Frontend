@@ -50,12 +50,12 @@ const Theme = deepMerge({
 
 // Create an http link:
 const httpLink = new HttpLink({
-  uri: 'http://localhost:3000/graphql',
+  uri: 'http://10.15.248.36:3000/graphql',
 });
 
 // Create a WebSocket link:
 const wsLink = new WebSocketLink({
-  uri: 'ws://localhost:3000/graphql',
+  uri: 'ws://10.15.248.36:3000/graphql',
   options: {
     reconnect: true,
   },
