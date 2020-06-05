@@ -55,7 +55,7 @@ const httpLink = new HttpLink({
 
 // Create a WebSocket link:
 const wsLink = new WebSocketLink({
-  uri: 'wss://cardsagainstfriends.online/graphql',
+  uri: 'wss://cardsagainstfriends.online/subscriptions',
   options: {
     reconnect: true,
   },
