@@ -50,7 +50,7 @@ const Theme = deepMerge({
 
 // Create an http link:
 const httpLink = new HttpLink({
-  uri: 'https://cardsagaintfriends.online/graphql',
+  uri: 'https://cardsagainstfriends.online/graphql',
 });
 
 // Create a WebSocket link:
