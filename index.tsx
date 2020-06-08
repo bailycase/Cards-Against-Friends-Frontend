@@ -50,12 +50,12 @@ const Theme = deepMerge({
 
 // Create an http link:
 const httpLink = new HttpLink({
-  uri: 'https://localhost:3000/graphql',
+  uri: 'https://cardsagaintfriends.online/graphql',
 });
 
 // Create a WebSocket link:
 const wsLink = new WebSocketLink({
-  uri: 'wss://localhost:3000/subscriptions',
+  uri: 'wss://cardsagainstfriends.online/subscriptions',
   options: {
     reconnect: true,
   },
