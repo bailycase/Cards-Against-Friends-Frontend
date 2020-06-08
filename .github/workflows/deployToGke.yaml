@@ -39,7 +39,10 @@ jobs:
         id: semantic
         env:
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN}}
-
+      - name: Release for Github
+        run: npx semantic-release
+        env:
+          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
       # Setup gcloud CLI
       - uses: GoogleCloudPlatform/github-actions/setup-gcloud@master
         with:

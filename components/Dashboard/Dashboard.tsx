@@ -8,7 +8,7 @@ import GameArea from '../GameArea/GameArea';
 import GameModal from '../Reusables/GameModal';
 import { ReduxState } from '../../redux/types';
 import {
-  useUpdateUserMutation, User, UpdateUserMutation,
+  useUpdateUserMutation, UpdateUserMutation,
 } from '../../__generated__/types';
 import { UserActions } from '../../redux/user/actions';
 
@@ -20,10 +20,12 @@ const Dashboard = () => {
   const [isNewUser, setIsNewUser] = React.useState<boolean>(false);
   const [newName, setName] = React.useState<string>();
   const dispatch = useDispatch();
+
   const handleUpdateUserResponse = ({ updateUser: { name } }: UpdateUserMutation) => {
     dispatch({ type: UserActions.updateUser, payload: { name } });
   };
   const [updateUser] = useUpdateUserMutation({ onCompleted: handleUpdateUserResponse });
+
   React.useEffect(() => {
     if (!name) {
       setIsNewUser(true);
@@ -53,7 +55,6 @@ const Dashboard = () => {
       {isNewUser && (
         <Layer>
           <Box gap="medium" direction="column" pad="large" align="center" width="large" justify="evenly">
-            <Heading size="large" margin="none">🤠</Heading>
             <Heading size="medium" margin="none">
               What should we call you..?
           </Heading>

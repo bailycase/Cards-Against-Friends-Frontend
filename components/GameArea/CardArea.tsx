@@ -113,7 +113,7 @@ const CardArea: React.FunctionComponent<CardAreaProps> = ({ gameId, visible }: C
   if (!visible) {
     return (
       <>
-        <Heading textAlign="center">The game is not running (◕ ◡ ◕)</Heading>
+        <Heading textAlign="center">The game is not running</Heading>
       </>
     );
   }

@@ -32,9 +32,9 @@ const Landing = () => {
               },
               enable: false,
             },
-            detectRetina: true,
+            detectRetina: false,
             emitters: [],
-            fpsLimit: 30,
+            fpsLimit: 60,
             infection: {
               cure: false,
               delay: 0,
@@ -177,10 +177,10 @@ const Landing = () => {
                 density: {
                   enable: true,
                   area: 800,
-                  factor: 1000,
+                  factor: 800,
                 },
                 limit: 0,
-                value: 80,
+                value: 100,
               },
               opacity: {
                 animation: {
