@@ -35,6 +35,9 @@ jobs:
       - name: Checkout
         uses: actions/checkout@master
 
+      - name: Install Dependencies
+        run: yarn
+
       - name: Release for github
         id: semantic
         run: npx semantic-release
