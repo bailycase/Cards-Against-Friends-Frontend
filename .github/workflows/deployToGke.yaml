@@ -40,10 +40,6 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN}}
 
-      - name: Update Package Version
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: npx semantic-release
       # Setup gcloud CLI
       - uses: GoogleCloudPlatform/github-actions/setup-gcloud@master
         with:
