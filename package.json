@@ -1,6 +1,6 @@
 {
   "name": "cards-against-humanity",
-  "version": "1.0.0",
+  "version": "1.5.3",
   "description": "A web app to play Cards Against Humanity with friends",
   "main": "build/index.html",
   "author": "Baily Case",
