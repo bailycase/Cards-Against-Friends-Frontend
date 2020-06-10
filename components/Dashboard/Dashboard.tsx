@@ -1,5 +1,6 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import AlertModal from '../Reusables/AlertModal'
 import {
   Sidebar, Button, Nav, Avatar, Main, Grid, Layer, Box, Heading, Paragraph, TextInput, Text,
 } from 'grommet';
@@ -86,7 +87,7 @@ const Dashboard = () => {
             </Nav>
           </Sidebar>
           <Main gridArea="main" fill="vertical">
-            {gameId && <GameArea gameId={gameId} />}
+            {gameId ? <GameArea gameId={gameId} /> : <AlertModal />}
           </Main>
           {
             gameModal && (

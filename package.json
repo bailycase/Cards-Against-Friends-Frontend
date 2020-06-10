@@ -7,9 +7,9 @@
   "license": "MIT",
   "scripts": {
     "test:watch": "jest --watch",
-    "dev": "parcel index.html",
+    "dev": "NODE_ENV=development parcel index.html",
     "generate": "graphql-codegen",
-    "build": "parcel build index.html"
+    "build": "NODE_ENV=production parcel build index.html"
   },
   "dependencies": {
     "@apollo/react-hooks": "^3.1.5",
@@ -26,6 +26,7 @@
     "apollo-utilities": "^1.3.3",
     "autoprefixer": "^9.7.6",
     "core-js": "2",
+    "dotenv": "^8.2.0",
     "global": "^4.4.0",
     "graphql": "^15.0.0",
     "graphql-redis-subscriptions": "^2.2.1",
