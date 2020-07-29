@@ -33,7 +33,7 @@ jobs:
     steps:
       # Checkout master branch
       - name: Checkout
-        uses: actions/checkout@master
+        uses: actions/checkout@v2
 
       - name: Install Dependencies
         run: yarn
