@@ -1,5 +1,5 @@
 import React, { ReactElement } from 'react'
-import { Layer, Box, Heading, Paragraph } from 'grommet'
+import { Box, Heading, Paragraph } from 'grommet'
 import packageJson from '../../package.json'
 export default function AlertModal(): ReactElement {
     return (

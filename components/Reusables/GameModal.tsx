@@ -9,14 +9,21 @@ import {
   useJoinGameMutation,
   useLeaveGameMutation,
 } from '../../__generated__/types';
+import { ReduxState } from '../../redux/types';
 
-const GameModal = ({ name, closeModal }) => {
+
+interface GameModalProps {
+  name: string;
+  closeModal: () => void;
+}
+
+const GameModal = ({ name, closeModal }: GameModalProps) => {
   const dispatch = useDispatch();
-  const [joinGame, { data: joinGameData }] = useJoinGameMutation();
-  const [createGame, { data }] = useCreateGameMutation();
+  const [joinGame] = useJoinGameMutation();
+  const [createGame] = useCreateGameMutation();
   const [leaveGame] = useLeaveGameMutation();
 
-  const currentGameId = useSelector((state) => state.Game.gameId);
+  const currentGameId = useSelector((state: ReduxState) => state.Game.gameId);
 
   const [joiningGame, setJoiningGame] = React.useState<boolean>(false);
   const [creatingGame, setCreatingGame] = React.useState<boolean>(false);
@@ -63,7 +70,7 @@ const GameModal = ({ name, closeModal }) => {
   // }, [data]);
 
   return (
-    <Box gap="medium" direction="column" pad="medium" align="center">
+    <Box direction="column" pad="medium" align="center">
       <Heading margin="none">
         Hiya&nbsp;
         {name}
@@ -71,36 +78,33 @@ const GameModal = ({ name, closeModal }) => {
       </Heading>
       <Paragraph>What would you like to do?</Paragraph>
       {!currentGameId ? (
-        <Box direction="row" gap="large">
-          <Button
-            icon={<Add />}
-            label="Create Game"
-            onClick={handleCreateGame}
-            disabled={creatingGame}
-            active={creatingGame}
-            focusIndicator={creatingGame}
-          />
-          <Button
-            icon={<Aggregate />}
-            label="Join Game"
-            onClick={handleJoinGame}
-            disabled={joiningGame}
-            active={joiningGame}
-            focusIndicator={joiningGame}
-          />
-          {(joiningGame || creatingGame) && (
-            <Box>
-              <TextInput
-                placeholder="Game Name"
-                onChange={(e) => setGameId(e.target.value)}
-              />
-              <Button
-                label={joiningGame ? 'Join Game' : 'Create Game'}
-                onClick={joiningGame ? handleJoinGame : handleCreateGame}
-              />
-            </Box>
-          )}
-        </Box>
+        <>
+          <Box margin="medium">
+            <TextInput
+              placeholder="Game Name"
+              onChange={(e) => setGameId(e.target.value)}
+              width="medium"
+            />
+          </Box>
+          <Box direction="row" gap="large">
+            <Button
+              icon={<Add />}
+              label="Create Game"
+              onClick={handleCreateGame}
+              // disabled={creatingGame}
+              active={creatingGame}
+              focusIndicator={creatingGame}
+            />
+            <Button
+              icon={<Aggregate />}
+              label="Join Game"
+              onClick={handleJoinGame}
+              // disabled={joiningGame}
+              active={joiningGame}
+              focusIndicator={joiningGame}
+            />
+          </Box>
+        </>
       ) : (
           <Box>
             <Paragraph>

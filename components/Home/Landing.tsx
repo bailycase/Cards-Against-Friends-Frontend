@@ -4,7 +4,7 @@ import { useHistory } from 'react-router-dom';
 // import "../../../assets/landing/css/main.scss";
 import Particles from 'react-particles-js';
 import {
-  Box, Paragraph, Heading, Button, Grid,
+  Box, Paragraph, Heading, Button
 } from 'grommet';
 
 const Landing = () => {
@@ -24,12 +24,6 @@ const Landing = () => {
             absorbers: [],
             background: {},
             backgroundMask: {
-              cover: {
-                color: {
-                  value: '#fff',
-                },
-                opacity: 1,
-              },
               enable: false,
             },
             detectRetina: false,
@@ -43,7 +37,7 @@ const Landing = () => {
               stages: [],
             },
             interactivity: {
-              detectsOn: 'canvas',
+              // detectsOn: 'canvas',
               events: {
                 onClick: {
                   enable: true,
@@ -107,7 +101,7 @@ const Landing = () => {
             particles: {
               collisions: {
                 enable: false,
-                mode: 'bounce',
+                // mode: ",
               },
               color: {
                 value: '#6320EE',
@@ -138,7 +132,7 @@ const Landing = () => {
                     y: 1200,
                   },
                 },
-                direction: 'none',
+                // direction: 'none',
                 enable: true,
                 noise: {
                   delay: {
@@ -160,7 +154,7 @@ const Landing = () => {
                     },
                   },
                 },
-                outMode: 'out',
+                // outMode: 'out',
                 random: false,
                 speed: 5,
                 straight: false,
@@ -189,10 +183,10 @@ const Landing = () => {
                   speed: 1,
                   sync: false,
                 },
-                random: {
-                  enable: false,
-                  minimumValue: 1,
-                },
+                // random: {
+                //   enable: false,
+                //   minimumValue: 1,
+                // },
                 value: 0.5,
               },
               rotate: {
@@ -201,7 +195,7 @@ const Landing = () => {
                   speed: 0,
                   sync: false,
                 },
-                direction: 'clockwise',
+                // direction: 'clockwise',
                 random: false,
                 value: 0,
               },
@@ -218,63 +212,23 @@ const Landing = () => {
               },
               shape: {
                 options: {
-                  character: {
-                    fill: true,
-                    close: true,
-                    font: 'Verdana',
-                    style: '',
-                    value: '*',
-                    weight: '400',
-                  },
-                  char: {
-                    fill: true,
-                    close: true,
-                    font: 'Verdana',
-                    style: '',
-                    value: '*',
-                    weight: '400',
-                  },
-                  image: {
-                    fill: true,
-                    close: true,
-                    height: 100,
-                    replaceColor: true,
-                    src: 'https://cdn.matteobruni.it/images/particles/github.svg',
-                    width: 100,
-                  },
-                  images: {
-                    fill: true,
-                    close: true,
-                    height: 100,
-                    replaceColor: true,
-                    src: 'https://cdn.matteobruni.it/images/particles/github.svg',
-                    width: 100,
-                  },
                   polygon: {
                     fill: true,
                     close: true,
-                    sides: 5,
                   },
                   star: {
                     fill: true,
                     close: true,
-                    sides: 5,
                   },
                 },
                 type: 'circle',
               },
               size: {
                 animation: {
-                  destroy: 'none',
                   enable: false,
                   minimumValue: 0.1,
                   speed: 40,
-                  startValue: 'max',
                   sync: false,
-                },
-                random: {
-                  enable: true,
-                  minimumValue: 1,
                 },
                 value: 5,
               },
@@ -311,15 +265,15 @@ const Landing = () => {
                 },
               },
               enable: false,
-              inline: {
-                arrangement: 'one-per-point',
-              },
-              move: {
-                radius: 10,
-                type: 'path',
-              },
+              // inline: {
+              //   arrangement: 'one-per-point',
+              // },
+              // move: {
+              //   radius: 10,
+              //   type: 'path',
+              // },
               scale: 1,
-              type: 'none',
+              // type: 'none',
               url: '',
             },
           }

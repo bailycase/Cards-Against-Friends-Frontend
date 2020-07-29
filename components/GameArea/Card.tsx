@@ -6,7 +6,7 @@ interface CardArgs {
   text?: string;
   backSide?: boolean;
   user?: string;
-  handleClick?: (text: string) => {};
+  handleClick?: (text: string, user?: string) => {};
 }
 
 const Card: React.FunctionComponent<CardArgs> = ({

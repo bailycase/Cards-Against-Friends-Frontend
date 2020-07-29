@@ -2,13 +2,16 @@ import React from 'react';
 import { ToastProvider } from 'react-toast-notifications';
 import ReactDOM from 'react-dom';
 import { InMemoryCache } from 'apollo-cache-inmemory';
+import { useDispatch } from 'react-redux'
 import { split } from 'apollo-link';
+import { useMediaQuery } from 'react-responsive'
 import {
   BrowserRouter as Router,
   Switch,
   Route,
   Redirect,
   useHistory,
+  RouteProps,
 } from 'react-router-dom';
 import { ApolloClient } from 'apollo-client';
 import { ApolloProvider } from '@apollo/react-hooks';
@@ -38,7 +41,8 @@ const Theme = deepMerge({
     },
     colors: {
       brand: '#6320EE',
-      secondary: '#fbfcff',
+      secondary: '#5707F7',
+      drawer: "rgb(255, 255, 255, 90%)",
       dark: '#32141a',
       light: '#eff9fb',
       grey: '#4c4c4c',
@@ -46,7 +50,6 @@ const Theme = deepMerge({
     },
   },
 });
-
 
 // Create an http link
 const httpLink = new HttpLink({
@@ -83,14 +86,22 @@ const client = new ApolloClient({
 const { store, persistor } = configureStore();
 const App: React.FunctionComponent = () => {
   // useBeforeUnload('Are you sure you want to leave?');
+  const isMobile = useMediaQuery({ query: '(max-width: 1224px)' })
   const history = useHistory();
   const isAuthenticated: boolean = useSelector((state: ReduxState) => state.User.loggedIn);
+  const dispatch = useDispatch()
+
+  React.useEffect(() => {
+    dispatch({ type: 'CHANGE_VIEW', payload: { isMobile } })
+  }, [isMobile])
+
   React.useEffect(() => {
     if (isAuthenticated) {
       history.replace('/dashboard');
     }
   }, [isAuthenticated]);
-  function PrivateRoute({ children, ...rest }) {
+
+  const PrivateRoute = ({ children, ...rest }: RouteProps) => {
     return (
       <Route
         {...rest}

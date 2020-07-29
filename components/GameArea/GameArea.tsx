@@ -2,7 +2,7 @@ import React from 'react';
 import { useToasts } from 'react-toast-notifications';
 import { useDispatch, useSelector } from 'react-redux';
 import { Grid, Box } from 'grommet';
-import { ReduxState } from 'frontend/redux/types';
+import { ReduxState } from '../../redux/types';
 import {
   useJoinGameMutation,
   useGameSubscription,
@@ -10,7 +10,7 @@ import {
   useStartGameMutation,
   useStopGameMutation,
 } from '../../__generated__/types';
-import GamePlayers from './GamePlayerList';
+import PlayerList from './GamePlayerList';
 import GameAreaToolbar from './GameAreaToolbar';
 import CardArea from './CardArea';
 
@@ -25,12 +25,14 @@ const GameArea: React.FunctionComponent<GameAreaProps> = ({ gameId }: GameAreaPr
 
   const {
     Game: {
-      subscribedToGame, host, running, currentRound,
+      subscribedToGame, host, running
     },
     User: {
       details: { name },
     },
-  } = useSelector((store): ReduxState => store);
+  } = useSelector((state: ReduxState) => state);
+
+  const isMobile = useSelector((state: ReduxState) => state.Utils.isMobile)
 
   const handleError = (error: any) => {
     addToast(error.graphQLErrors[0].message, {
@@ -70,6 +72,7 @@ const GameArea: React.FunctionComponent<GameAreaProps> = ({ gameId }: GameAreaPr
       getGame({ variables: { gameId, name } });
     }
   }, [subscribedToGame]);
+
   React.useEffect(() => {
     if (!data || !data.game) return;
     if (data.game.userJoined) {
@@ -96,19 +99,35 @@ const GameArea: React.FunctionComponent<GameAreaProps> = ({ gameId }: GameAreaPr
     }
   }, [gameData]);
   const isHost = host === name && true;
+
+  const desktopGrid = {
+    rows: ['xsmall', 'small', 'auto'],
+    columns: ['auto', 'medium'],
+    areas: [
+      { name: 'gameAreaToolbar', start: [0, 0], end: [1, 0] },
+      { name: 'gameArea', start: [0, 1], end: [0, 2] },
+      { name: 'players', start: [1, 1], end: [1, 1] },
+      { name: 'chat', start: [1, 2], end: [1, 2] },
+    ]
+  }
+
+  const mobileGrid = {
+    columns: ['auto'],
+    rows: ['xsmall', 'auto'],
+    areas: [
+      { name: 'gameAreaToolbar', start: [0, 0], end: [0, 0] },
+      { name: 'gameArea', start: [0, 1], end: [0, 1] },
+    ]
+  }
+
   return (
     <Grid
-      columns={['auto', 'medium']}
-      rows={['xsmall', 'small', 'auto']}
+      columns={isMobile ? mobileGrid.columns : desktopGrid.columns}
+      rows={isMobile ? mobileGrid.rows : desktopGrid.rows}
       gap="small"
       pad="small"
       fill
-      areas={[
-        { name: 'gameAreaToolbar', start: [0, 0], end: [1, 0] },
-        { name: 'gameArea', start: [0, 1], end: [0, 2] },
-        { name: 'players', start: [1, 1], end: [1, 1] },
-        { name: 'chat', start: [1, 2], end: [1, 2] },
-      ]}
+      areas={isMobile ? mobileGrid.areas : desktopGrid.areas}
     >
       <Box gridArea="gameAreaToolbar">
         <GameAreaToolbar
@@ -119,13 +138,12 @@ const GameArea: React.FunctionComponent<GameAreaProps> = ({ gameId }: GameAreaPr
           isHost={isHost}
         />
       </Box>
-      <Box gridArea="gameArea">
+      <Box gridArea={isMobile ? undefined : 'gameArea'}>
         <CardArea isHost={isHost} visible={running} gameId={gameId} />
       </Box>
-      <Box gridArea="players">
-        <GamePlayers gameId={gameId} />
-      </Box>
-      <Box gridArea="chat" />
+      {!isMobile && <Box gridArea="players">
+        <PlayerList gameId={gameId} />
+      </Box>}
     </Grid>
   );
 };
